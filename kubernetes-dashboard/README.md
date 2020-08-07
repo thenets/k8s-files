@@ -24,6 +24,15 @@ kubectl apply -f serviceaccount-admin.yml
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-dashboard | awk '{print $1}')
 ```
 
+## Start the proxy server
+
+```bash
+kubectl proxy
+```
+
+Now you can access the Kubernetes Dashboard:
+- http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
 ## Credits
 
 - https://medium.com/@kanrangsan/creating-admin-user-to-access-kubernetes-dashboard-723d6c9764e4
