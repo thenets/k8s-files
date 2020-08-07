@@ -21,7 +21,7 @@ kubectl apply -f serviceaccount-admin.yml
 ## Get the token
 
 ```bash
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-dashboard | awk '{print $1}')
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-dashboard | awk '{print $1}') | grep "token:"
 ```
 
 ## Start the proxy server
